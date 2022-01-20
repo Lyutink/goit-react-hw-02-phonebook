@@ -1,11 +1,13 @@
 import PropTypes from "prop-types";
 
+import { LabelFilter, InputFilter } from "./Filter.styled";
+
 export default function Filter({ filter, onChange }) {
   return (
-    <label>
-      Find contacts by Name
-      <input type="text" value={filter} onChange={onChange} />
-    </label>
+    <>
+      <LabelFilter>Find contacts by Name</LabelFilter>
+      <InputFilter type="text" value={filter} onChange={onChange} />
+    </>
   );
 }
 

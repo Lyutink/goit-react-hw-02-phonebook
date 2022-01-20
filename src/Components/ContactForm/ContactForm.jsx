@@ -1,9 +1,9 @@
-//import PropTypes from "prop-types";
 import React, { Component } from "react";
-
+//import PropTypes from "prop-types";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
-//import { Container, Title } from "./Section.styled";
+
+import { ContainerForm, LabelForm, BtnForm } from "./ContactForm.styled";
 
 const validationSchema = Yup.object({
   name: Yup.string()
@@ -57,24 +57,22 @@ class ContactForm extends Component {
         initialValues={{ name: "", number: "" }}
         validationSchema={validationSchema}
         onSubmit={(values, { setSubmitting }) => {
-          //  this.handleChange({ name: '', number: '' });
-          // this.handleSubmit({ name: '', number: '' });
-          //this.handleContactInput(values);
           this.props.onSubmit(values);
-          //this.handleContactInput({ name: '', number: '' })
-
           setSubmitting(false);
         }}
       >
         <Form autoComplete="off">
-          <label htmlFor="name">Name</label>
-          <Field type="text" name="name" />
-          <ErrorMessage name="name" />
+          <ContainerForm>
+            <LabelForm htmlFor="name">Name</LabelForm>
+            <Field type="text" name="name" />
+            <ErrorMessage name="name" />
 
-          <Field type="tel" name="number" />
-          <ErrorMessage name="number" />
+            <LabelForm htmlFor="name">Number</LabelForm>
+            <Field type="tel" name="number" />
+            <ErrorMessage name="number" />
 
-          <button type="submit">Add contact</button>
+            <BtnForm type="submit">Add contact</BtnForm>
+          </ContainerForm>
         </Form>
       </Formik>
     );
